@@ -3,7 +3,7 @@ try {
 
 
     $host = "localhost";
-    $dbname = "p4_php_pdo_hospital";
+    $dbname = "hospitale2n";
     $login = "root";
     $password = "";
 
