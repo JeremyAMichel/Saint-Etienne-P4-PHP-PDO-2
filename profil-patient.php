@@ -64,7 +64,6 @@ try {
                 <td><?= $patient['mail'] ?></td>
                 <td>
                     <a href="./modif-patient.php?patient=<?= $patient['id'] ?>" class="edit-button">Modifier</a>
-                    <a href="./process/process-delete-patient.php?patient=<?= $patient['id'] ?>" class="delete-button">Supprimer</a>
                 </td>
             </tr>
         </tbody>

@@ -44,7 +44,10 @@ try {
                 <tr>
                     <td><?= $patient['firstname'] ?></td>
                     <td><?= $patient['lastname'] ?></td>
-                    <td><a href="./profil-patient.php?patient=<?= $patient['id'] ?>" class="back-button">Voir</a></td>
+                    <td>
+                        <a href="./profil-patient.php?patient=<?= $patient['id'] ?>" class="back-button">Voir</a>
+                        <a href="./process/process-delete-patient.php?patient=<?= $patient['id'] ?>" class="delete-button">Supprimer</a>
+                    </td>
                 </tr>
             <?php
             }
