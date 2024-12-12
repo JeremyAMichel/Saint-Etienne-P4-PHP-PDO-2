@@ -84,5 +84,5 @@ try {
 }
 
 
-header('Location: ../index.php');
+header('Location: ../liste-patients.php');
 exit;
