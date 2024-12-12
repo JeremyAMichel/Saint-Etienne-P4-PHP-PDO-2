@@ -41,7 +41,8 @@ try {
                     <td><?= $appointment['dateHour'] ?></td>
                     <td><?= $appointment['firstname'] ?> <?= $appointment['lastname'] ?></td>
                     <td>
-                        <a href="rendezvous.php?id=<?= $appointment['id'] ?>">Voir</a>
+                        <a href="./rendezvous.php?id=<?= $appointment['id'] ?>" class="back-button">Voir</a>
+                        <a href="./process/process-supprimer-rendezvous.php?id=<?= $appointment['id'] ?>" class="delete-button">Supprimer</a>
                     </td>
                 </tr>
             <?php } ?>

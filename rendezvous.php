@@ -47,7 +47,6 @@ try {
                 <td><?= $appointment['mail'] ?></td>
                 <td>
                     <a href="./modifier-rendezvous.php?id=<?= $appointment['id'] ?>" class="edit-button">Modifier</a>
-                    <a href="./process/process-supprimer-rendezvous.php?id=<?= $appointment['id'] ?>" class="delete-button">Supprimer</a>
                 </td>
             </tr>
         </tbody>
