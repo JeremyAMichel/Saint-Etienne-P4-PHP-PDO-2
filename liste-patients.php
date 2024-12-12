@@ -29,18 +29,28 @@ try {
 
     <a href="./index.php" class="back-button">Retour à l'accueil</a>
 
-    <ul>
-        <?php
-        foreach ($patients as $patient) {
-        ?>
-
-            <li>Prénom : <?= $patient['firstname'] ?> | Nom : <?= $patient['lastname'] ?></li> <a href="./profil-patient.php?patient=<?= $patient['id'] ?>">Voir</a>
-
-        <?php
-        }
-        ?>
-
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($patients as $patient) {
+            ?>
+                <tr>
+                    <td><?= $patient['firstname'] ?></td>
+                    <td><?= $patient['lastname'] ?></td>
+                    <td><a href="./profil-patient.php?patient=<?= $patient['id'] ?>" class="back-button">Voir</a></td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
 
 </html>

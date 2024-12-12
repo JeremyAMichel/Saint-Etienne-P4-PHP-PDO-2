@@ -14,8 +14,12 @@ try {
 
     $patient = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    $stmt2 = $pdo->prepare('SELECT * FROM appointments WHERE idPatients = :id');
+    $stmt2->execute([
+        ':id' => $_GET['patient']
+    ]);
 
-
+    $appointments = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $error) {
     echo "Erreur lors de la requete : " . $error->getMessage();
 }
@@ -38,14 +42,54 @@ try {
 
 <body>
 
-    <a href="./modif-patient.php?patient=<?= $patient['id'] ?>">Modifier le patient</a>
-    <a href="./process/process-delete-patient.php?patient=<?= $patient['id'] ?>" style="color: red">Supprimer le patient</a>
+    <h1>Profil du patient</h1>
 
-    <p>Prenom : <?= $patient['firstname'] ?></p>
-    <p>Nom : <?= $patient['lastname'] ?></p>
-    <p>Date de naissance : <?= $patient['birthdate'] ?></p>
-    <p>Phone : <?= $patient['phone'] ?></p>
-    <p>Email : <?= $patient['mail'] ?></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?= $patient['firstname'] ?></td>
+                <td><?= $patient['lastname'] ?></td>
+                <td><?= $patient['birthdate'] ?></td>
+                <td><?= $patient['phone'] ?></td>
+                <td><?= $patient['mail'] ?></td>
+                <td>
+                    <a href="./modif-patient.php?patient=<?= $patient['id'] ?>" class="edit-button">Modifier</a>
+                    <a href="./process/process-delete-patient.php?patient=<?= $patient['id'] ?>" class="delete-button">Supprimer</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Rendez-vous</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date et Heure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($appointments as $appointment) {
+            ?>
+                <tr>
+                    <td><?= $appointment['dateHour'] ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
 
 
     <a href="./index.php" class="back-button">Retour à l'accueil</a>
