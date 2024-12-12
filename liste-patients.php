@@ -1,18 +1,23 @@
 <?php
 require_once './utils/connect-db.php';
 
-$sql = "SELECT * FROM patients";
+$search = '';
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+    $sql = "SELECT * FROM patients WHERE firstname LIKE :search OR lastname LIKE :search";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['search' => '%' . $search . '%']);
+} else {
+    $sql = "SELECT * FROM patients";
+    $stmt = $pdo->query($sql);
+}
 
 try {
-
-    $stmt = $pdo->query($sql);
     $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $error) {
     echo "Erreur lors de la requete : " . $error->getMessage();
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +34,11 @@ try {
 
     <a href="./index.php" class="back-button">Retour à l'accueil</a>
 
+    <form method="GET" action="liste-patients.php">
+        <input type="text" name="search" placeholder="Rechercher un patient" value="<?= htmlspecialchars($search) ?>">
+        <button type="submit">Rechercher</button>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -42,8 +52,8 @@ try {
             foreach ($patients as $patient) {
             ?>
                 <tr>
-                    <td><?= $patient['firstname'] ?></td>
-                    <td><?= $patient['lastname'] ?></td>
+                    <td><?= htmlspecialchars($patient['firstname']) ?></td>
+                    <td><?= htmlspecialchars($patient['lastname']) ?></td>
                     <td>
                         <a href="./profil-patient.php?patient=<?= $patient['id'] ?>" class="back-button">Voir</a>
                         <a href="./process/process-delete-patient.php?patient=<?= $patient['id'] ?>" class="delete-button">Supprimer</a>
