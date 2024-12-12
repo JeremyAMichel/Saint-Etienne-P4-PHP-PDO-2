@@ -35,6 +35,7 @@ try {
                 <th>Date de naissance</th>
                 <th>Téléphone</th>
                 <th>Email</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,10 @@ try {
                 <td><?= $appointment['birthdate'] ?></td>
                 <td><?= $appointment['phone'] ?></td>
                 <td><?= $appointment['mail'] ?></td>
+                <td>
+                    <a href="./modifier-rendezvous.php?id=<?= $appointment['id'] ?>" class="edit-button">Modifier</a>
+                    <a href="./process/process-supprimer-rendezvous.php?id=<?= $appointment['id'] ?>" class="delete-button">Supprimer</a>
+                </td>
             </tr>
         </tbody>
     </table>
