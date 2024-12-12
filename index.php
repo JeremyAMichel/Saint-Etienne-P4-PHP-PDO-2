@@ -13,6 +13,7 @@
         <a href="./ajout-patient.php">Ajouter un Patient</a>
         <a href="./liste-rendezvous.php">Liste Rendez-vous</a>
         <a href="./ajout-rendezvous.php">Ajouter un Rendez-vous</a>
+        <a href="./ajout-patient-rendez-vous.php">Ajouter un Patient et un Rendez-vous</a>
     </div>
 </body>
 </html>
