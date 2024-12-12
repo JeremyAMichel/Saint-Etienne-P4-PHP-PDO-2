@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
+
+    <h1>Ajouter un patient</h1>
+
+    <a href="./liste-patients.php" class="back-button">Retour à la liste des patients</a>
+
     <form action="./process/process-ajout-patient.php" method="post">
         <label for="firstname">Prénom : </label>
         <input type="text" name="firstname" id="firstname">

@@ -19,8 +19,15 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
+
+
+    <h1>Ajouter un rendez-vous</h1>
+
+    <a href="./liste-rendezvous.php" class="back-button">Retour à la liste des rendez-vous</a>
+    
     <form action="./process/process-ajout-rendezvous.php" method="post">
         <label for="dateHour">Date et Heure :</label>
         <input type="datetime-local" name="dateHour" id="dateHour" required>

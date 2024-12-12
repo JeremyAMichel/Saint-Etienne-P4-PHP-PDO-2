@@ -20,8 +20,12 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
+
+    <h1>Liste des rendez-vous</h1>
+    <a href="./index.php" class="back-button">Retour à l'accueil</a>
     
     <table>
         <thead>
@@ -38,8 +42,6 @@ try {
                     <td><?= $appointment['firstname'] ?> <?= $appointment['lastname'] ?></td>
                     <td>
                         <a href="rendezvous.php?id=<?= $appointment['id'] ?>">Voir</a>
-                        <a href="rendezvous.php?id=<?= $appointment['id'] ?>">Modifier</a>
-                        <a href="rendezvous.php?id=<?= $appointment['id'] ?>">Supprimer</a>
                     </td>
                 </tr>
             <?php } ?>

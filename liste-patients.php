@@ -21,12 +21,13 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
     <h1>Liste des patients</h1>
 
-    <a href="./index.php">Retour à l'accueil</a>
+    <a href="./index.php" class="back-button">Retour à l'accueil</a>
 
     <ul>
         <?php
